@@ -9,3 +9,5 @@ apt-get install -y docker-ce jq maven openjdk-8-jdk
 
 RUN docker -v
 RUN mvn -v
+
+ENTRYPOINT ["/bin/bash"]
