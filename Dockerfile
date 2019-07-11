@@ -10,4 +10,6 @@ apt-get install -y docker-ce jq maven openjdk-8-jdk
 RUN docker -v
 RUN mvn -v
 
-ENTRYPOINT ["/bin/bash"]
+ADD run.sh /tmp/run.sh
+RUN chmod +x /tmp/run.sh
+ENTRYPOINT ["/tmp/run.sh"]
