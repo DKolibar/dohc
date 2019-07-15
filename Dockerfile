@@ -7,12 +7,9 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bi
 apt-get update && \
 apt-get install -y docker-ce jq maven openjdk-8-jdk
 
-#copy pasta
 ENV REDIS_VERSION 4.0.12
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-${REDIS_VERSION}.tar.gz
-
-RUN apt-get update && apt-get upgrade \
-    && apt-get install -y build-deps gcc make linux-headers musl-dev tar \
+RUN apt-get install -y build-deps gcc make linux-headers musl-dev tar \
     && wget -O redis.tar.gz "$REDIS_DOWNLOAD_URL" \
     && mkdir -p /usr/src/redis \
     && tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1 \
@@ -21,7 +18,7 @@ RUN apt-get update && apt-get upgrade \
     && rm -r /usr/src/redis \
     && apk del build-deps \
     && rm -rf /var/cache/apk/*
-#------------------
+
 
 RUN docker -v
 RUN mvn -v
