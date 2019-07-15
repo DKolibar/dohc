@@ -9,7 +9,7 @@ apt-get install -y docker-ce jq maven openjdk-8-jdk
 
 ENV REDIS_VERSION 4.0.12
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-${REDIS_VERSION}.tar.gz
-RUN apt-get install -y build-deps gcc make linux-headers musl-dev tar \
+RUN apt-get install -y gcc make linux-headers tar \
     && wget -O redis.tar.gz "$REDIS_DOWNLOAD_URL" \
     && mkdir -p /usr/src/redis \
     && tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1 \
