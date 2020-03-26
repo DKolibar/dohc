@@ -17,7 +17,8 @@ RUN apt-get install -y gcc make tar wget \
     && make -C /usr/src/redis install redis-cli /usr/bin \
     && rm -r /usr/src/redis \
     && rm -rf /var/cache/apk/*
-    
+
+RUN mkdir /etc/docker
 RUN echo -e "{\n\"    insecure-registries\" : [ \"h-register.tmv2359.devlab.de.tmo\" ]\n}" >  /etc/docker/daemon.json
 
 RUN docker -v
