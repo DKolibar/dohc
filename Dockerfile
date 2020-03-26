@@ -24,4 +24,4 @@ RUN mvn -v
 
 #ADD run.sh /tmp/run.sh
 #RUN chmod +x /tmp/run.sh
-ENTRYPOINT ["/bin/bash"]
+#ENTRYPOINT ["/bin/bash"]
