@@ -22,6 +22,6 @@ RUN apt-get install -y gcc make tar wget \
 RUN docker -v
 RUN mvn -v
 
-ADD run.sh /tmp/run.sh
-RUN chmod +x /tmp/run.sh
-ENTRYPOINT ["/tmp/run.sh"]
+#ADD run.sh /tmp/run.sh
+#RUN chmod +x /tmp/run.sh
+ENTRYPOINT ["/bin/bash"]
